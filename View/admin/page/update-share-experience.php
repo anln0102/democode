@@ -184,7 +184,7 @@ if (isset($_POST['name'])) {
                     <!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
-            <div class="row">
+            <div class="row update-share_kn">
 
                 <div class="col-md-6">
                     <!-- general form elements -->
@@ -315,7 +315,7 @@ if (isset($_POST['name'])) {
                         </div>
                     </div>
                 </div>
-                <div class="card-footer">
+                <div class="card-footer update-share_kn_btn">
                     <button type="submit" class="btn btn-primary">登録</button>
                 </div>
                 </form>

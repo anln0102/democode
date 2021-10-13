@@ -9,9 +9,9 @@ $error = [];
 $student = (isset($_SESSION['student'])) ? $_SESSION['student'] : [];
 
 $currentUser = $_SESSION['student'];//lay session us or die(mysqli_error(1));
-$student_code = $currentUser['student_code'];
+$id = $currentUser['id'];
 
-$query = mysqli_query($conn, "SELECT * FROM student where student_code ='$student_code'")or die(mysqli_error());
+$query = mysqli_query($conn, "SELECT * FROM student where id ='$id'")or die(mysqli_error());
 $row = mysqli_fetch_array($query);
 
 if (isset($_POST['submit'])) {

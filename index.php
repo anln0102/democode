@@ -33,7 +33,7 @@
 <div class="main">
     <div id="header">
 
-        <?php include("view/web/component/header.php") ?>
+        <?php require_once("view/web/component/header.php") ?>
     </div>
 
     <div id="home">
@@ -42,16 +42,16 @@
 
         if (isset($_GET["view"])) {
             $view = $_GET["view"];
-            include("view/web/page/" . $view . ".php");
+            require_once("view/web/page/" . $view . ".php");
         } else {
-            include("view/web/page/home.php");
+            require_once("view/web/page/home.php");
         }
         ?>
 
     </div>
 
     <div id="footer">
-        <?php include("view/web/component/footer.php") ?>
+        <?php require_once("view/web/component/footer.php") ?>
     </div>
 
 </div>

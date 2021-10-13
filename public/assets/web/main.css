@@ -39,7 +39,11 @@
     }
     
     .header .search {
-        width: 100%;
+        width: 90%;
+    }
+    
+    .header .search .btn_search {
+        display: inline;
     }
     
     .search i {
@@ -52,18 +56,18 @@
     .header .search input {
         border: 1px solid;
         outline: none !important;
-        border-radius: 10px;
+        border-radius: 10px 0 0 10px;
         font-size: 14px;
         padding-left: 40px;
-        width: 100%;
+        width: 80%;
         height: 35px;
         background-color: #c4c5c8;
     }
     
     .header .logo img {
         border-radius: 50px;
-        width: 25px;
-        height: 25px;
+        width: 35px;
+        height: 35px;
     }
     
     .header .logo p {
@@ -82,13 +86,17 @@
     .dropdown {
         position: relative;
         display: inline-block;
+        height: 65px;
+        padding-top: 20px;
     }
     
     .dropdown-content {
         display: none;
         position: absolute;
         background-color: #f9f9f9;
-        min-width: 120px;
+        top: 50px;
+        left: 10px;
+        min-width: 105px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         z-index: 1;
     }
@@ -155,6 +163,12 @@
         text-decoration: none;
         color: #ffcc33;
     }
+    /*edit_form.php*/
+    
+    .content .container-fluid .card-header {
+        background-color: #1969d64f;
+        color: #115d11;
+    }
     /*home*/
     
     .home {
@@ -210,15 +224,15 @@
         color: #ffffff;
         position: absolute;
         width: 230px;
-        height: 125px;
+        height: 105px;
         border-radius: 80px;
-        top: 10px;
+        top: 18px;
         left: 85px;
     }
     
     .list-item .slider .item .background-company .myDIV {
-        padding-top: 42px;
-        font-size: 24px;
+        padding-top: 33px;
+        font-size: 20px;
         font-weight: 600;
         text-shadow: -3px 5px 4px black;
     }
@@ -250,8 +264,8 @@
     }
     
     .info .name_span {
-        color: #a3abac;
-        font-size: 16px;
+        color: #2b2b2b;
+        font-size: 15px;
     }
     
     .info button {
@@ -266,7 +280,7 @@
     }
     
     .info .infor_button:hover {
-        background-color: #078acc;
+        background-color: #078acc93;
         transition: all 0.5s;
     }
     
@@ -341,6 +355,7 @@
         font-family: TimesNewRoman;
         background-size: cover;
         background-image: url("image/background-register.png");
+        height: 840px;
     }
     
     .content-register-page {
@@ -410,6 +425,7 @@
         font-family: TimesNewRoman;
         background-image: url("image/background-home.png");
         background-size: cover;
+        height: 840px;
     }
     
     .content-login-page {
@@ -424,6 +440,7 @@
     .content-login-page h2 {
         font-size: 30px;
         color: #ffffff;
+        margin-top: 50px;
     }
     
     .content-login-page p {
@@ -460,6 +477,7 @@
     
     .detail-form-login {
         padding: 20px 30px 0px 30px;
+        margin-top: 50px;
     }
     
     .form-login img {

@@ -14,7 +14,7 @@ if (!isset($_SESSION)) {
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="http://hokokusho2021.localhost/view/admin/index.php" class="nav-link">ホームページ</a>
+                <a href="http://localhost/hokokusho2021/view/admin/index.php" class="nav-link">ホームページ</a>
             </li>
          
         </ul>
@@ -31,13 +31,13 @@ if (!isset($_SESSION)) {
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4 navr_aside">
         <!-- Brand Logo -->
-        <a href="http://hokokusho2021.localhost/view/admin/index.php" class="brand-link">
+        <a href="http://localhost/hokokusho2021/view/admin/index.php" class="brand-link">
             <!-- <img src="../../public/assets/web/image/icon_world.jpg" alt="AdminLTE Logo"
                  class="brand-image img-circle elevation-3"
                  style="opacity: .8"> -->
-            <span>報告書2021</span>
+            <span class="navr_title">報告書2021</span>
         </a>
 
         <!-- Sidebar -->

@@ -10,7 +10,9 @@ $student_code = $_GET['student_code'];
 
 $sql = "SELECT student.*, recruit.*,naitei.*,shiken.* FROM student, recruit , naitei, shiken  WHERE  student.student_code='$student_code'";
 
-$query = mysqli_query($conn, $sql);
+   $query = mysqli_query($conn, $sql); 
+
+
 
 $data = mysqli_fetch_array($query);
 // $data = isset($array['query']) ? $array['query'] : '';
@@ -99,7 +101,7 @@ if (isset($_POST['name'])) {
             
                 <div class="col-sm-12">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">ホームページ</a></li>
+                        <li class="breadcrumb-item"><a href="http://localhost/hokokusho2021/">ホームページ</a></li>
                         <li class="breadcrumb-item active">報告書</li>
                     </ol>
                 </div>
@@ -155,86 +157,6 @@ if (isset($_POST['name'])) {
                     </div>
                     <!--/.col (left) -->
 
-                </div>
-                <div class="col-md-6">
-                    <!-- general form elements -->
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">内定</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label>試験の結果</label>
-                                <input type="text" class="form-control" name="shiken_kekka" value="<?php echo $data['shiken_kekka']; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label>内定を得た</label>
-                                <input type="text" class="form-control" name="naitei" value="<?php echo $data['naitei']; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label>内定日</label>
-                                <input type="text" class="form-control" name="naiteibi" value="<?php echo $data['naiteibi']; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label>内定日および方法</label>
-                                <input type="text" class="form-control" name="method" value="<?php echo $data['method']; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label>アドバイス</label>
-                                <textarea name="advice"><?php echo $data['advice']; ?></textarea>
-
-                            </div>
-
-                        </div>
-                        <!-- /.card -->
-
-
-                    </div>
-                    <!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <div class="row">
-
-                <div class="col-md-6">
-                    <!-- general form elements -->
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h3 class="card-title">応募</h3>
-                        </div>
-                        <!-- /.card-header -->
-                        <!-- form start -->
-
-                        <div class="card-body">
-                            <div class="form-group">
-                                <p>応募方法</p>
-                                        <select name="recruitment_method">
-                                        <option　value="<?php echo $data['recruitment_method']; ?>"><?php echo $data['recruitment_method']; ?></option>
-                                            <option>学科紹介</option>
-                                            <option>就職課紹介</option>
-                                            <option>自由応募</option>
-                                            <option>縁故</option>
-                                            <option>その他</option>
-                                            
-                                        </select>
-                            </div>
-                            <div class="form-group">
-                                <label>訪問内容</label>
-                                <input type="text" class="form-control" name="interview_content" value="<?php echo $data['interview_content']; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label>職種</label>
-                                <input type="text" class="form-control" name="career_field" value="<?php echo $data['career_field']; ?>">
-                            </div>
-
-
-                        </div>
-                        <!-- /.card -->
-
-
-                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card card-primary">
@@ -315,7 +237,7 @@ if (isset($_POST['name'])) {
                             </div>
                             <div class="form-group">
                                 <label>形式</label>
-                                <input type="text" class="form-control" name="keishiki_ichi" value="<?php echo $data['keishiki_ichi']; ?>">
+                                <input type="text" class="form-control" name="keishiki_ichimensetsu" value="<?php echo $data['keishiki_ichimensetsu']; ?>">
                             </div>
                         
                             <div class="form-group">
@@ -324,7 +246,7 @@ if (isset($_POST['name'])) {
                             </div>
                             <div class="form-group">
                                 <label>時間</label>
-                                <input type="text" class="form-control" name="nijimen_nijimensetsu" value="<?php echo $data['nijimen_nijimensetsu']; ?>">
+                                <input type="text" class="form-control" name="jikan_nijikanmensetsu" value="<?php echo $data['jikan_nijikanmensetsu']; ?>">
                             </div>
                             <div class="form-group">
                                 <label>形式</label>
@@ -335,6 +257,88 @@ if (isset($_POST['name'])) {
                         </div>
                     </div>
                 </div>
+                <!-- /.container-fluid -->
+            </div>
+            <div class="row">
+
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">応募</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+
+                        <div class="card-body">
+                            <div class="form-group">
+                                <p>応募方法</p>
+                                        <select name="recruitment_method">
+                                        <option　value="<?php echo $data['recruitment_method']; ?>"><?php echo $data['recruitment_method']; ?></option>
+                                            <option>学科紹介</option>
+                                            <option>就職課紹介</option>
+                                            <option>自由応募</option>
+                                            <option>縁故</option>
+                                            <option>その他</option>
+                                            
+                                        </select>
+                            </div>
+                            <div class="form-group">
+                                <label>訪問内容</label>
+                                <input type="text" class="form-control" name="interview_content" value="<?php echo $data['interview_content']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>職種</label>
+                                <input type="text" class="form-control" name="career_field" value="<?php echo $data['career_field']; ?>">
+                            </div>
+
+
+                        </div>
+                        <!-- /.card -->
+
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">内定</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>試験の結果</label>
+                                <input type="text" class="form-control" name="shiken_kekka" value="<?php echo $data['shiken_kekka']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>内定を得た</label>
+                                <input type="text" class="form-control" name="naitei" value="<?php echo $data['naitei']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>内定日</label>
+                                <input type="text" class="form-control" name="naiteibi" value="<?php echo $data['naiteibi']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>内定日および方法</label>
+                                <input type="text" class="form-control" name="method" value="<?php echo $data['method']; ?>">
+                            </div>
+                            <div class="form-group">
+                                <label>アドバイス</label>
+                                <textarea name="advice"><?php echo $data['advice']; ?></textarea>
+
+                            </div>
+
+                        </div>
+                        <!-- /.card -->
+
+
+                    </div>
+                    <!-- /.row -->
+                </div>
+                
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">保存</button>
                 </div>

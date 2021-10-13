@@ -3,11 +3,10 @@
 require_once('Model/DBconnect.php');
 
 
-$data = "SELECT * FROM student INNER JOIN recruit ON student.student_code = recruit.student_code 
-     INNER JOIN naitei ON student.student_code = naitei.student_code
-     INNER JOIN shiken ON student.student_code = shiken.student_code
-     WHERE student.status = 0||1;  
-";
+$data = "SELECT *  FROM shiken INNER JOIN student ON student.student_code = shiken.student_code
+INNER JOIN naitei ON naitei.student_code = shiken.student_code
+INNER JOIN recruit ON recruit.student_code = shiken.student_code
+WHERE student.status = 0|| 1;";
 //phuong thuc khoi tao sesstion de tao phien lam viec tren browser//
 if (!isset($_SESSION)) {
     session_start();
@@ -22,15 +21,16 @@ $student = (isset($_SESSION['student'])) ? $_SESSION['student'] : [];
 //lay giá trị trên trinh duyệt để xét nếu có thì sẽ lấy giá trị trong DB để in ra//
 $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
 
-
 //hàm check không rỗng
     if (!empty($keyword)) {
-        $search = "SELECT * FROM student INNER JOIN recruit ON student.student_code = recruit.student_code 
-INNER JOIN naitei ON student.student_code = naitei.student_code
-INNER JOIN shiken ON student.student_code = shiken.student_code AND student.status = 1||0;
+        $search = "SELECT *  FROM shiken INNER JOIN student ON student.student_code = shiken.student_code
+        INNER JOIN naitei ON naitei.student_code = shiken.student_code
+        INNER JOIN recruit ON recruit.student_code = shiken.student_code;
 WHERE `company_name` like '%" . $key . "%'";
 //kết nối với DB nếu có thí sẽ lấy DB và lưu
         $result = mysqli_query($conn, $search);
+        
+        die($result);
     } else {
         $result = mysqli_query($conn, $data);
     }
@@ -62,7 +62,7 @@ WHERE `company_name` like '%" . $key . "%'";
                                     <p class="description"><span class="name_span">内定日 : </span><?php echo $f["naiteibi"]?></p>
                                     <p class="name-company"><span class="name_span"> 会社名 : </span><?php echo $f["company_name"] ?></p>
                                     <?php if(isset($_SESSION["student"])) { ?>
-                                        <button type="button" class="detail" data-toggle="modal" data-target="#<?php echo $f["student_code"] ?>">
+                                        <button type="button" class="detail infor_button" data-toggle="modal" data-target="#<?php echo $f["student_code"] ?>">
                                             詳しく  
                                         </button>
                                     <?php } else { ?>
@@ -271,12 +271,12 @@ WHERE `company_name` like '%" . $key . "%'";
                                     </div>
                                     <div class="modal-footer">
                                         <?php
-                                        $student_user_id = $f["student_code"];
-                                        $user_id = isset($student['student_code']) ? $student['student_code'] : '';
+                                        $student_code = $f["student_code"];
+                                        $student_user_code = isset($student['student_code']) ? $student['student_code'] : '';
                                         ?>
                                         <?php
-                                        if ($user_id === $student_user_id) { ?>
-                                            <a class="btn btn-primary" href="?view=edit_form&student_id=<?php echo $f['student_code'] ?>">編集</a>
+                                        if ($student_code === $student_user_code) { ?>
+                                            <a class="btn btn-primary" href="?view=edit_form&student_code=<?php echo $f['student_code'] ?>">編集</a>
                                             <a class="btn btn-danger" onclick="return confirm('削除したいですか？')" href="?view=delete_student&student_code=<?php echo $f['student_code'] ?>">削除</a>
                                         <?php } ?>
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>

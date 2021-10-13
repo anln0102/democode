@@ -37,8 +37,7 @@ require_once('../../Model/DBconnect.php');
                                 <p class="add-form-user"><a href="#">新利用者</a></p>
                                 <table id="example2" class="table table-bordered table-hover table-responsive-xl">
                                     <thead>
-                                    <tr>
-                                        <th>番号</th>
+                                    <tr class="users_table">
                                         <th>名前</th>
                                         <th>学生番号</th>
                                         <th>メールアドレス</th>
@@ -47,14 +46,13 @@ require_once('../../Model/DBconnect.php');
                                         <th>機能</th>
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody class="user_table_down">
                                     <?php
                                     $listUser = 'select * from student';
                                     $student = mysqli_query($conn, $listUser);
                                     ?>
                                     <?php foreach ($student as $key => $student ): ?>
                                         <tr>
-                                            <td><?php echo ++$key; ?></td>
                                             <td><?php echo $student['name']; ?></td>
                                             <td><?php echo $student['student_code']; ?></td>
                                             <td><?php echo $student['email']; ?></td>

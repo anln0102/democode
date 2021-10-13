@@ -7,9 +7,9 @@ if (!isset($_SESSION)) {
 $error = [];
 
 $id = $_GET['id'];
-$sql = "SELECT * FROM users where id='$id'";
+$sql = "SELECT * FROM student where id='$id'";
 $query = mysqli_query($conn, $sql);
-$user = mysqli_fetch_array($query);
+$student = mysqli_fetch_array($query);
 
 if (isset($_POST['name'])) {
     $name = $_POST['name'];
@@ -22,8 +22,8 @@ if (isset($_POST['name'])) {
     if (empty($name)) {
         $error['name'] = "名前を入力してください。";
     }
-    if (empty($student_number)) {
-        $error['student_number'] = "学生番号を入力してください。";
+    if (empty($student_code)) {
+        $error['student_code'] = "学生番号を入力してください。";
     }
     if (empty($email)) {
         $error['email'] = "メールアドレスを入力してください。";
@@ -37,7 +37,7 @@ if (isset($_POST['name'])) {
     if ($password != $re_password) {
         $error['re_password'] = "パスワードを合わせていませんでした。";
     }
-    $sql = "UPDATE users SET name='$name',email='$email',gender='$gender',student_number='$student_number',password = '$password_hash' WHERE id='$id'";
+    $sql = "UPDATE student SET name='$name',email='$email',gender='$gender',student_code='$student_code',password = '$password_hash' WHERE id='$id'";
 
 
     $query = mysqli_query($conn, $sql);
@@ -90,7 +90,7 @@ if (isset($_POST['name'])) {
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">名前</label>
                                     <input type="text" class="form-control" name="name"
-                                           value="<?php echo $user['name']; ?>">
+                                           value="<?php echo $student['name']; ?>">
                                 </div>
                                 <div class="error-validate">
                                     <span><?php echo (isset($error['name'])) ? $error['name'] : '' ?></span>
@@ -98,7 +98,7 @@ if (isset($_POST['name'])) {
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">メールアドレス</label>
                                     <input type="email" class="form-control" name="email"
-                                           value="<?php echo $user['email']; ?>">
+                                           value="<?php echo $student['email']; ?>">
                                 </div>
                                 <div class="error-validate">
                                     <span><?php echo (isset($error['email'])) ? $error['email'] : '' ?></span>
@@ -106,10 +106,10 @@ if (isset($_POST['name'])) {
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">学生番号</label>
                                     <input type="text" class="form-control" name="student_number"
-                                           value="<?php echo $user['student_number']; ?>">
+                                           value="<?php echo $student['student_code']; ?>">
                                 </div>
                                 <div class="error-validate">
-                                    <span><?php echo (isset($error['student_number'])) ? $error['student_number'] : '' ?></span>
+                                    <span><?php echo (isset($error['student_code'])) ? $error['student_code'] : '' ?></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">性別</label>

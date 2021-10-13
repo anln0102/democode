@@ -4,7 +4,7 @@
      <div class="row">
         <div class="col-12">
             <div class="footer-content">
-                <p>© 2021 |   All Rights Reserved |   第一工科大学上野キャンパス|   APT |</p>
+                <p>© 2021 |   All Rights Reserved | BAO研究 |</p>
             </div>
         </div>
      </div>

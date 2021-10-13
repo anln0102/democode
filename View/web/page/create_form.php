@@ -164,7 +164,7 @@ if (isset($_POST['name'])) {
     }
 
     if (empty($error)) {
-        $sql = "UPDATE student SET registration_date = '$registration_date',company_name = '$company_name',address = '$address',status = '0';
+        $sql = "UPDATE student SET  registration_date = '$registration_date',company_name = '$company_name',address = '$address',status = '0';
         INSERT INTO naitei (student_code,shiken_kekka,naitei,naiteibi,method,advice)
         VALUES ('$student_code','$shiken_kekka','$naitei','$naiteibi','$method','$advice');
         INSERT INTO recruit (student_code,recruitment_method,interview_content,career_field)
@@ -173,7 +173,6 @@ if (isset($_POST['name'])) {
         VALUES ('$student_code','$date_time_interview','$jikan','$kaiyou','$action','$general_job','$jikan_general_job','$ronbun',
             '$jikan_ronbun','$senmon','$jikan_senmon','$gengo','$jikan_gengo','$tekisei','$jikan_tekisei',
             '$ichimensetsu','$jikan_ichimensetsu','$keishiki_ichimensetsu','$nijimensetsu','$jikan_nijikanmensetsu','$keishiki_ni');";
-
         $query = $conn->multi_query($sql) or trigger_error("Query Failed! SQL: $sql - Error: ".mysqli_error($conn), E_USER_ERROR);
         header('Location: http://localhost/hokokusho2021/');
     } else {
